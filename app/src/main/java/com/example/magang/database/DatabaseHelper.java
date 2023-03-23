@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "db_magang";
+    public static final String DATABASE_NAME = "db_travel";
     public static final String TABLE_USER = "tb_user";
     public static final String COL_USERNAME = "username";
     public static final String COL_PASSWORD = "password";
@@ -21,12 +21,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, 1);
     }
 
+    @Override
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("PRAGMA foreign_keys=ON");
         db.execSQL("create table " + TABLE_USER + " (" + COL_USERNAME + " TEXT PRIMARY KEY, " + COL_PASSWORD +
                 " TEXT, " + COL_NAME + " TEXT)");
-        db.execSQL("insert into " + TABLE_USER + " values ('zulafinnurr@gmail.com','1234','Zulafin Nur Rosyidah');");
+        db.execSQL("insert into " + TABLE_USER + " values ('zulafinnurr@gmail.com','zulafin','Zulafin Nur Rosyidah');");
     }
 
     @Override
@@ -39,12 +40,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
     }
 
-    public void SignUp(String username, String password, String name) throws SQLException {
+    public boolean SignUp(String username, String password, String name) throws SQLException {
 
         @SuppressLint("Recycle") Cursor mCursor = db.rawQuery("INSERT INTO " + TABLE_USER + "(" + COL_USERNAME + ", " + COL_PASSWORD + ", " + COL_NAME + ") VALUES (?,?,?)", new String[]{username, password, name});
         if (mCursor != null) {
-            mCursor.getCount();
+            return mCursor.getCount() > 0;
         }
+        return false;
     }
 
     public boolean Login(String username, String password) throws SQLException {

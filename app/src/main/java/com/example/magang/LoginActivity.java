@@ -23,7 +23,7 @@ import com.example.magang.session.SessionManager;
 public class LoginActivity extends AppCompatActivity {
 
     EditText txtUsername, txtPassword;
-    Button btnLogin, btnSignup;
+    Button btnLogin, btnSignUp;
     AlertDialogManager alert = new AlertDialogManager();
     SessionManager session;
     DatabaseHelper dbHelper;
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         txtPassword = findViewById(R.id.password);
 
         btnLogin = findViewById(R.id.masuk);
-        btnSignup = findViewById(R.id.ke_daftar);
+        btnSignUp = findViewById(R.id.ke_daftar);
 
         btnLogin.setOnClickListener(arg0 -> {
             // Get username, password from EditText
@@ -80,10 +80,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btnSignup.setOnClickListener(v -> {
+        btnSignUp.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(i);
         });
+
     }
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
