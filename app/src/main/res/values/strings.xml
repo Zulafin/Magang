@@ -2,4 +2,5 @@
     <string name="app_name">Magang</string>
     <string name="button_not_register">Tidak memiliki akun? <font color='red'>SIGN UP</font></string>
     <string name="after_register">Sudah memiliki akun? <font color='red'>LOGIN</font></string>
+    <string name="reset_password"><font color='red'>Lupa Kata Sandi?</font></string>
 </resources>

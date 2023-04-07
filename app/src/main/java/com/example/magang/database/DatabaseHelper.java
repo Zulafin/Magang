@@ -14,7 +14,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_USERNAME = "username";
     public static final String COL_PASSWORD = "password";
     public static final String COL_NAME = "name";
-
     private SQLiteDatabase db;
 
     public DatabaseHelper(Context context) {

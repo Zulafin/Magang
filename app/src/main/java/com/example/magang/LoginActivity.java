@@ -23,7 +23,7 @@ import com.example.magang.session.SessionManager;
 public class LoginActivity extends AppCompatActivity {
 
     EditText txtUsername, txtPassword;
-    Button btnLogin, btnSignUp;
+    Button btnLogin, btnSignUp, btnReset;
     AlertDialogManager alert = new AlertDialogManager();
     SessionManager session;
     DatabaseHelper dbHelper;
@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.masuk);
         btnSignUp = findViewById(R.id.ke_daftar);
+        btnReset = findViewById(R.id.updatepass);
 
         btnLogin.setOnClickListener(arg0 -> {
             // Get username, password from EditText
@@ -78,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
+
         });
 
         btnSignUp.setOnClickListener(v -> {
@@ -85,7 +87,13 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(i);
         });
 
+        btnReset.setOnClickListener(v -> {
+            Intent i = new Intent(LoginActivity.this, ResetPassword.class);
+            startActivity(i);
+        });
+
     }
+
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
