@@ -88,8 +88,9 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnReset.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this, ResetPassword.class);
-            startActivity(i);
+
+            Intent intent = new Intent(getApplicationContext(), ResetPassword.class);
+            startActivity(intent);
         });
 
     }
